@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "Jan Mas Rovira"
+      user-mail-address "janmasrovira@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -21,8 +21,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
-;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
+(setq doom-font (font-spec :family "SauceCodePro Nerd Font" :size 14.0 :weight 'semi-light))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -74,3 +73,37 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(setq doom-localleader-key ",")
+(setq-default evil-escape-key-sequence "fd")
+
+(map! :leader
+      :desc "M-x"
+      "SPC" #'execute-extended-command)
+
+(map! :leader
+      :desc "Comment or uncomment lines"
+      "c l" #'evilnc-comment-or-uncomment-lines)
+
+(map! :leader "1" #'winum-select-window-1)
+(map! :leader "2" #'winum-select-window-2)
+(map! :leader "3" #'winum-select-window-3)
+(map! :leader "4" #'winum-select-window-4)
+(map! :leader "5" #'winum-select-window-5)
+(map! :leader "6" #'winum-select-window-6)
+(map! :leader "7" #'winum-select-window-7)
+(map! :leader "8" #'winum-select-window-8)
+(map! :leader "9" #'winum-select-window-9)
+
+(map! :v "s" #'evil-surround-region)
+
+(map! :leader "g s" #'magit-status)
+
+(map! :localleader
+      :map with-editor-mode-map
+      "k"
+      #'with-editor-cancel)
+(map! :localleader
+      :map with-editor-mode-map
+      "c"
+      #'with-editor-finish)
