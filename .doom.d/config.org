@@ -266,6 +266,5 @@ Disable the ghc checker.
 * MiniJuvix
 #+begin_src elisp
 (push "~/projects/minijuvix/minijuvix-mode/" load-path)
-lolo
 (require 'minijuvix-mode)
 #+end_src
