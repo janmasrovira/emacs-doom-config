@@ -21,7 +21,9 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "SauceCodePro Nerd Font" :size 14.0 :weight 'semi-light))
+(setq doom-font (font-spec :family "SauceCodePro Nerd Font" :size 13.0))
+(setq doom-font-increment 1.0)
+(map! "C-M-+" #'doom/increase-font-size)
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -96,7 +98,8 @@
 (map! :leader "8" #'winum-select-window-8)
 (map! :leader "9" #'winum-select-window-9)
 
-(map! :leader "l l" #'+workspace/new)
+(map! :leader "l l" #'+workspace/display)
+(map! :leader "l n" #'+workspace/new)
 (map! :leader "l k" #'+workspace/delete)
 (map! :leader "l 1" #'+workspace/switch-to-0)
 (map! :leader "l 2" #'+workspace/switch-to-1)
@@ -113,17 +116,20 @@
 (map! :leader "g s" #'magit-status)
 
 (map! :localleader
-      :map with-editor-mode-map
-      "k"
-      #'with-editor-cancel)
+      :map haskell-mode-map
+      "'" #'haskell-interactive-switch
+      "l" #'haskell-process-load-file
+      )
+(setq flycheck-disabled-checkers '(haskell-ghc))
+
 (map! :localleader
       :map with-editor-mode-map
-      "c"
-      #'with-editor-finish)
+      "k" #'with-editor-cancel
+      "c" #'with-editor-finish
+      )
 
 (map! :map vertico-map
-      "C-h" #'vertico-directory-delete-char)
-(map! :map vertico-map
+      "C-h" #'vertico-directory-delete-char
       "C-l" #'vertico-directory-delete-word)
 
 (map! :leader "j w"
