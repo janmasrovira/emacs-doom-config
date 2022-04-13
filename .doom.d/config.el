@@ -73,6 +73,7 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+(require 'agda-input nil t)
 
 (setq doom-localleader-key ",")
 (setq-default evil-escape-key-sequence "fd")
@@ -81,9 +82,9 @@
       :desc "M-x"
       "SPC" #'execute-extended-command)
 
-(map! :leader
-      :desc "Comment or uncomment lines"
-      "c l" #'evilnc-comment-or-uncomment-lines)
+(map! :desc "Comment or uncomment lines"
+      :leader "c l"
+      #'evilnc-comment-or-uncomment-lines)
 
 (map! :leader "1" #'winum-select-window-1)
 (map! :leader "2" #'winum-select-window-2)
@@ -94,6 +95,18 @@
 (map! :leader "7" #'winum-select-window-7)
 (map! :leader "8" #'winum-select-window-8)
 (map! :leader "9" #'winum-select-window-9)
+
+(map! :leader "l l" #'+workspace/new)
+(map! :leader "l k" #'+workspace/delete)
+(map! :leader "l 1" #'+workspace/switch-to-0)
+(map! :leader "l 2" #'+workspace/switch-to-1)
+(map! :leader "l 3" #'+workspace/switch-to-2)
+(map! :leader "l 4" #'+workspace/switch-to-3)
+(map! :leader "l 5" #'+workspace/switch-to-4)
+(map! :leader "l 6" #'+workspace/switch-to-5)
+(map! :leader "l 7" #'+workspace/switch-to-6)
+(map! :leader "l 8" #'+workspace/switch-to-7)
+(map! :leader "l 9" #'+workspace/switch-to-8)
 
 (map! :v "s" #'evil-surround-region)
 
@@ -107,3 +120,24 @@
       :map with-editor-mode-map
       "c"
       #'with-editor-finish)
+
+(map! :map vertico-map
+      "C-h" #'vertico-directory-delete-char)
+(map! :map vertico-map
+      "C-l" #'vertico-directory-delete-word)
+
+(map! :leader "j w"
+      #'evil-avy-goto-word-or-subword-1)
+
+(map! :leader "s a p"
+      #'+default/search-project)
+
+(map! :leader "q q"
+      #'kill-emacs)
+
+(+global-word-wrap-mode +1)
+
+(setq display-line-numbers-type nil)
+
+(push "~/projects/minijuvix/minijuvix-mode/" load-path)
+(require 'minijuvix-mode)
