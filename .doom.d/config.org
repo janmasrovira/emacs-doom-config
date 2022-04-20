@@ -98,7 +98,7 @@ Doom exposes five (optional) variables for controlling fonts in Doom:
 See =C-h v doom-font= for documentation and more examples of what they
 accept.
 #+begin_src elisp
-(setq doom-font (font-spec :family "SauceCodePro Nerd Font" :size 13.0))
+(setq doom-font (font-spec :family "SauceCodePro Nerd Font" :size 14.0))
 (setq doom-font-increment 1.0)
 (map! "C-M-+" #'doom/increase-font-size)
 #+end_src
@@ -117,12 +117,19 @@ accept.
       :desc "M-x"
       "SPC" #'execute-extended-command)
 
-(map! :desc "Comment or uncomment lines"
-      :leader "c l"
-      #'evilnc-comment-or-uncomment-lines)
+(map! :leader
+      "r y" #'consult-yank-pop)
 
 (+global-word-wrap-mode +1)
 #+end_src
+
+** Comments
+#+begin_src elisp
+(map!
+      :leader "c l" #'evilnc-comment-or-uncomment-lines
+      :leader "c y" #'evilnc-copy-and-comment-lines)
+#+end_src
+
 ** Surround
 #+begin_src elisp
 (map! :v "s" #'evil-surround-region)
@@ -210,7 +217,7 @@ change =org-directory=. It must be set before org loads!
 #+end_src
 
 Edit code blocks with usual keybindings.
-TODO: This does not work.
+Misteriously this only work if you go into insert mode and then back to normal mode.
 #+begin_src elisp
 (map! :map org-src-mode-map
       :n ", c" #'org-edit-src-exit
@@ -243,13 +250,23 @@ Use Spacemacs keybindings.
 #+end_src
 
 * Haskell
-Map return.
+Map return for interactive mode.
 #+begin_src elisp
 (map!
    :map haskell-interactive-mode-map
    :n "RET" #'haskell-interactive-mode-return
    )
 #+end_src
+
+Navigate the ghci history.
+#+begin_src elisp
+(map!
+   :map haskell-interactive-mode-map
+   :i "C-j" #'haskell-interactive-mode-history-next
+   :i "C-k" #'haskell-interactive-mode-history-previous
+   )
+#+end_src
+
 
 Fix: Allows to jump to an error from the interactive ghci buffer.
 #+begin_src elisp
@@ -263,7 +280,6 @@ Fix: Allows to jump to an error from the interactive ghci buffer.
            ))
 )
 #+end_src
-
 
 Use Spacemacs keybindings.
 #+begin_src elisp
