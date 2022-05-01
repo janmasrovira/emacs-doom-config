@@ -99,6 +99,7 @@ See =C-h v doom-font= for documentation and more examples of what they
 accept.
 #+begin_src elisp
 (setq doom-font (font-spec :family "SauceCodePro Nerd Font" :size 14.0))
+(setq doom-unicode-font (font-spec :name "DejaVu Math TeX Gyre"))
 (setq doom-font-increment 1.0)
 (map! "C-M-+" #'doom/increase-font-size)
 #+end_src
@@ -164,6 +165,10 @@ accept.
 (map! :leader "l 9" #'+workspace/switch-to-8)
 #+end_src
 
+** Flycheck
+#+begin_src elisp
+(map! :map flycheck-mode-map :leader "e l" #'flycheck-list-errors)
+#+end_src
 
 ** Line numbers
 This determines the style of line numbers in effect. If set to =nil=, line
@@ -312,5 +317,5 @@ Disable the ghc checker.
 * MiniJuvix
 #+begin_src elisp
 (push "~/projects/minijuvix/minijuvix-mode/" load-path)
-(require 'minijuvix-mode)
+(require 'minijuvix-mode nil t)
 #+end_src
