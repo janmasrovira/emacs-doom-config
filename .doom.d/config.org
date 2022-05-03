@@ -74,6 +74,11 @@ Disable evil-snipe.
 #+end_src
 
 * General
+** Doom
+Disable tangle on save.
+#+begin_src elisp
+(remove-hook 'org-mode-hook #'+literate-enable-recompile-h)
+#+end_src
 ** Profile
 Place your private configuration here! Remember, you do not need to run 'doom
 sync' after modifying this file!
@@ -168,6 +173,8 @@ accept.
 ** Flycheck
 #+begin_src elisp
 (map! :map flycheck-mode-map :leader "e l" #'flycheck-list-errors)
+(map! :map flycheck-mode-map :leader "e n" #'flycheck-next-error)
+(map! :map flycheck-mode-map :leader "e p" #'flycheck-previous-error)
 #+end_src
 
 ** Line numbers
