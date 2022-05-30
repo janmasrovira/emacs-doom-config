@@ -45,7 +45,7 @@
        ;;tabs              ; a tab bar for Emacs
        ;;treemacs          ; a project drawer, like neotree but cooler
        ;;unicode           ; extended unicode support for various languages
-       ;; vc-gutter         ; vcs diff in the fringe
+       vc-gutter         ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        (window-select +numbers) ; visually switch windows
        workspaces        ; tab emulation, persistence & separate workspaces
@@ -70,7 +70,7 @@
        electric          ; smarter, keyword-based electric-indent
        (ibuffer +icons)         ; interactive buffer management
        undo              ; persistent, smarter undo for your inevitable mistakes
-       ;; vc                ; version-control and Emacs, sitting in a tree
+       vc                ; version-control and Emacs, sitting in a tree
 
        :term
        ;; eshell            ; the elisp shell that works everywhere
@@ -147,9 +147,10 @@
        ;;lean              ; for folks with too much to prove
        ;;ledger            ; be audit you can be
        ;;lua               ; one-based indices? one-based indices
+       kotlin
        markdown          ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
-       org               ; organize your plain life in plain text
+       (org +pretty)      ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
