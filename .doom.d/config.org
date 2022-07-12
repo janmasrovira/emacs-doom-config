@@ -181,6 +181,7 @@ accept.
 (map! :map flycheck-mode-map :leader "e l" #'flycheck-list-errors)
 (map! :map flycheck-mode-map :leader "e n" #'flycheck-next-error)
 (map! :map flycheck-mode-map :leader "e p" #'flycheck-previous-error)
+(setq flycheck-popup-tip-error-prefix "")
 #+end_src
 
 ** Line numbers
@@ -327,8 +328,8 @@ Disable the ghc checker.
       #'+default/search-project)
 #+end_src
 
-* MiniJuvix
+* Juvix
 #+begin_src elisp
-(push "~/projects/minijuvix/minijuvix-mode/" load-path)
-(require 'minijuvix-mode nil t)
+(push "~/projects/juvix/juvix-mode/" load-path)
+(require 'juvix-mode nil t)
 #+end_src
