@@ -240,8 +240,7 @@ Misteriously this only work if you go into insert mode and then back to normal m
 #+begin_src elisp
 (map! :map org-src-mode-map
       :n ", c" #'org-edit-src-exit
-      :n ", k" #'org-edit-src-abort
-      )
+      :n ", k" #'org-edit-src-abort)
 #+end_src
 * Agda
 Require Agda input method if available.
@@ -256,16 +255,14 @@ Use Spacemacs keybindings.
 (map! :localleader
       :map with-editor-mode-map
       "k" #'with-editor-cancel
-      "c" #'with-editor-finish
-      )
+      "c" #'with-editor-finish)
 #+end_src
 
 * Vertico
 #+begin_src elisp
 (map! :map vertico-map
       "C-h" #'vertico-directory-delete-char
-      "C-l" #'vertico-directory-delete-word
-      )
+      "C-l" #'vertico-directory-delete-word)
 #+end_src
 
 * Haskell
@@ -273,8 +270,13 @@ Map return for interactive mode.
 #+begin_src elisp
 (map!
    :map haskell-interactive-mode-map
-   :n "RET" #'haskell-interactive-mode-return
-   )
+   :n "RET" #'haskell-interactive-mode-return)
+#+end_src
+
+Disable suggestion for removing imports.
+#+begin_src elisp
+(after! haskell-mode
+  (setq haskell-process-suggest-remove-import-lines nil))
 #+end_src
 
 Navigate the ghci history.
@@ -282,8 +284,7 @@ Navigate the ghci history.
 (map!
    :map haskell-interactive-mode-map
    :i "C-j" #'haskell-interactive-mode-history-next
-   :i "C-k" #'haskell-interactive-mode-history-previous
-   )
+   :i "C-k" #'haskell-interactive-mode-history-previous)
 #+end_src
 
 
@@ -295,9 +296,7 @@ Fix: Allows to jump to an error from the interactive ghci buffer.
               (when (eq major-mode 'haskell-interactive-mode)
                 (flycheck-mode +1)
                 (flycheck-mode -1)
-                )
-           ))
-)
+                ))))
 #+end_src
 
 Use Spacemacs keybindings.
@@ -312,7 +311,7 @@ Use Spacemacs keybindings.
 
 Disable the ghc checker.
 #+begin_src elisp
-(setq flycheck-disabled-checkers '(haskell-ghc))
+(setq flycheck-disabled-checkers '(haskell-ghc haskell-stack-ghc))
 #+end_src
 
 * Avy
