@@ -79,6 +79,17 @@ Disable evil-snipe.
 (package! fish-mode)
 #+end_src
 
+*** hledger-mode
+#+begin_src elisp :tangle packages.el
+(package! hledger-mode)
+#+end_src
+
+*** lean 4
+#+begin_src elisp :tangle packages.el
+(package! lean4-mode
+  :recipe (:host github :repo "leanprover/lean4-mode"))
+#+end_src
+
 * General
 ** Doom
 Disable tangle on save.
@@ -312,6 +323,12 @@ Use Spacemacs keybindings.
 Disable the ghc checker.
 #+begin_src elisp
 (setq flycheck-disabled-checkers '(haskell-ghc haskell-stack-ghc))
+#+end_src
+
+* Hledger
+#+begin_src elisp
+(add-to-list 'auto-mode-alist '("\\.journal\\'" . hledger-mode))
+(setq hledger-jfile "~/projects/balances/balances.journal")
 #+end_src
 
 * Avy
