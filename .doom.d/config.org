@@ -79,6 +79,11 @@ Disable evil-snipe.
 (package! fish-mode)
 #+end_src
 
+*** gnuplot-mode
+#+begin_src elisp :tangle packages.el
+(package! gnuplot-mode)
+#+end_src
+
 *** hledger-mode
 #+begin_src elisp :tangle packages.el
 (package! hledger-mode)
@@ -212,7 +217,7 @@ available. You can either set =doom-theme= or manually load a theme with the
 * Doom help
 Whenever you reconfigure a package, make sure to wrap your config in an
 =after!= block, otherwise Doom's defaults may override your settings. E.g.
-#+begin_src elisp :tanble no
+#+begin_src elisp :tangle no
 (after! PACKAGE
   (setq x y))
 #+end_src
