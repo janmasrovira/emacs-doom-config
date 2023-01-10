@@ -197,7 +197,9 @@ accept.
 (map! :map flycheck-mode-map :leader "e l" #'flycheck-list-errors)
 (map! :map flycheck-mode-map :leader "e n" #'flycheck-next-error)
 (map! :map flycheck-mode-map :leader "e p" #'flycheck-previous-error)
-(setq flycheck-popup-tip-error-prefix "")
+(use-package! flycheck-popup-tip
+  :config
+  (setq flycheck-popup-tip-error-prefix ""))
 #+end_src
 
 ** Line numbers
