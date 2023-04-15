@@ -74,6 +74,12 @@ Disable evil-snipe.
 (package! evil-snipe :disable t)
 #+end_src
 
+*** ox-gfm
+To export org mode to github flavoured markdown.
+#+begin_src elisp :tangle packages.el
+(package! ox-gfm)
+#+end_src
+
 *** fish-mode
 #+begin_src elisp :tangle packages.el
 (package! fish-mode)
@@ -82,6 +88,12 @@ Disable evil-snipe.
 *** gnuplot-mode
 #+begin_src elisp :tangle packages.el
 (package! gnuplot-mode)
+#+end_src
+
+*** posframe
+Create frames at point.
+#+begin_src elisp :tangle packages.el
+(package! posframe)
 #+end_src
 
 *** hledger-mode
@@ -149,6 +161,7 @@ accept.
       "r y" #'consult-yank-pop)
 
 (+global-word-wrap-mode +1)
+(setq help-at-pt-display-when-idle t)
 #+end_src
 
 ** Comments
@@ -202,11 +215,19 @@ accept.
   (setq flycheck-popup-tip-error-prefix ""))
 #+end_src
 
+** Regexp
+#+begin_src elisp
+(setq reb-re-syntax 'string)
+#+end_src
+
 ** Line numbers
 This determines the style of line numbers in effect. If set to =nil=, line
 numbers are disabled. For relative line numbers, set this to =relative=.
 #+begin_src elisp
 (setq display-line-numbers-type nil)
+(custom-set-faces!
+      '(linum :foreground "pink")
+      )
 #+end_src
 
 ** Theme
@@ -353,6 +374,6 @@ Disable the ghc checker.
 
 * Juvix
 #+begin_src elisp
-(push "~/projects/juvix/juvix-mode/" load-path)
+(push "~/projects/juvix-mode/" load-path)
 (require 'juvix-mode nil t)
 #+end_src
