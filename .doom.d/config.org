@@ -80,6 +80,11 @@ To export org mode to github flavoured markdown.
 (package! ox-gfm)
 #+end_src
 
+*** scss-mode
+#+begin_src elisp :tangle packages.el
+(package! scss-mode)
+#+end_src
+
 *** fish-mode
 #+begin_src elisp :tangle packages.el
 (package! fish-mode)
