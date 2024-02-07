@@ -95,12 +95,6 @@ To export org mode to github flavoured markdown.
 (package! gnuplot-mode)
 #+end_src
 
-*** posframe
-Create frames at point.
-#+begin_src elisp :tangle packages.el
-(package! posframe)
-#+end_src
-
 *** hledger-mode
 #+begin_src elisp :tangle packages.el
 (package! hledger-mode)
@@ -112,12 +106,41 @@ Create frames at point.
   :recipe (:host github :repo "leanprover/lean4-mode"))
 #+end_src
 
+*** fcitx
+#+begin_src elisp :tangle packages.el
+(package! fcitx)
+#+end_src
+
+*** just
+#+begin_src elisp :tangle packages.el
+(package! just-mode)
+#+end_src
+
 * General
 ** Doom
 Disable tangle on save.
 #+begin_src elisp
 (remove-hook 'org-mode-hook #'+literate-enable-recompile-h)
 #+end_src
+
+** Input method
+#+begin_src elisp
+(map! :leader
+      "t i i" #'toggle-input-method)
+#+end_src
+
+** mozc
+#+begin_src elisp
+#+end_src
+
+** fcitx
+#+begin_src elisp
+(setq fcitx-use-dbus nil ; fcitx.el doesn't know fcitx5's new dbus interface
+      ;; the command name changed, but the switches and arguments haven't
+      fcitx-remote-command "fcitx5-remote")
+(fcitx-default-setup)
+#+end_src
+
 ** Profile
 Place your private configuration here! Remember, you do not need to run 'doom
 sync' after modifying this file!
@@ -167,6 +190,7 @@ accept.
 
 (+global-word-wrap-mode +1)
 (setq help-at-pt-display-when-idle t)
+(require 'iso-transl)
 #+end_src
 
 ** Comments
@@ -354,7 +378,6 @@ Navigate the ghci history.
    :i "C-k" #'haskell-interactive-mode-history-previous)
 #+end_src
 
-
 Fix: Allows to jump to an error from the interactive ghci buffer.
 #+begin_src elisp
 (after! haskell-mode
@@ -362,8 +385,13 @@ Fix: Allows to jump to an error from the interactive ghci buffer.
             (lambda ()
               (when (eq major-mode 'haskell-interactive-mode)
                 (flycheck-mode +1)
-                (flycheck-mode -1)
-                ))))
+                (flycheck-mode -1)))))
+#+end_src
+
+Disable stan plugin
+#+begin_src elisp
+(after! lsp-haskell
+  (setq lsp-haskell-plugin-stan-global-on nil))
 #+end_src
 
 Use Spacemacs keybindings.
@@ -404,4 +432,7 @@ Disable the ghc checker.
 #+begin_src elisp
 (push "~/projects/juvix-mode/" load-path)
 (require 'juvix-mode nil t)
+(after! juvix-mode
+   (setq juvix-global-flags '())
+  )
 #+end_src
