@@ -1,9 +1,9 @@
 * Readme
-
+  Note that this is only the doom configuration. It does not include doom itself.
   #+begin_example
-  git clone --recurse-submodules git@gitlab.com:janmasrovira/emacs-doom-config.git dotfiles/doom
+  git clone git@gitlab.com:janmasrovira/emacs-doom-config.git ~/dotfiles/doom
   -- if using chemacs, stop here. Otherwise use stow to set it up
-  cd dotfiles
-  stow -n -v 2 tmux # to check if everything is fine
-  stow tmux
+  cd ~/dotfiles
+  stow -n -v 2 doom # to check if everything is fine
+  stow doom
   #+end_example
