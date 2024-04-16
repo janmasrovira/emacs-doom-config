@@ -1,9 +1,15 @@
 * Readme
-  Note that this is only the doom configuration. It does not include doom itself.
+  Note that this repository only includes the doom configuration. It does not
+  include doom itself.
+
   #+begin_example
   git clone git@gitlab.com:janmasrovira/emacs-doom-config.git ~/dotfiles/doom
   -- if using chemacs, stop here. Otherwise use stow to set it up
   cd ~/dotfiles
   stow -n -v 2 doom # to check if everything is fine
   stow doom
+
+  # To clone Doom:
+  git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+  doom sync
   #+end_example
