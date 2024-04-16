@@ -12,4 +12,7 @@
   # To clone Doom:
   git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
   doom sync
+
+  # To install the donts run
+  M-x nerd-icons-install-fonts
   #+end_example
