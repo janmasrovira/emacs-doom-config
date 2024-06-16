@@ -1,3 +1,4 @@
 .doom.d/config.el
 packages.el
 /.emacs.d/
+/.config/doom/config.el
