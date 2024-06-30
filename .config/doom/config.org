@@ -123,6 +123,18 @@ Disable tangle on save.
 (remove-hook 'org-mode-hook #'+literate-enable-recompile-h)
 #+end_src
 
+** Editing
+*** Shifting
+Keep relative indentation when shifting.
+#+begin_src elisp
+(setq evil-shift-round nil)
+#+end_src
+
+Shifting 1 by 1 is more precise.
+#+begin_src elisp
+(setq evil-shift-width 1)
+#+end_src
+
 ** Input method
 #+begin_src elisp
 (map! :leader
