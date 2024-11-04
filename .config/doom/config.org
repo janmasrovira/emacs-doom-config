@@ -74,6 +74,11 @@ Disable evil-snipe.
 (package! evil-snipe :disable t)
 #+end_src
 
+*** lsp-tailwindcss
+#+begin_src elisp :tangle packages.el
+(package! lsp-tailwindcss :recipe (:host github :repo "merrickluo/lsp-tailwindcss"))
+#+end_src
+
 *** ox-gfm
 To export org mode to github flavoured markdown.
 #+begin_src elisp :tangle packages.el
@@ -242,6 +247,11 @@ accept.
 (use-package! flycheck-popup-tip
   :config
   (setq flycheck-popup-tip-error-prefix ""))
+#+end_src
+** Tailwind
+
+#+begin_src elisp
+(use-package! lsp-tailwindcss :after lsp-mode)
 #+end_src
 
 ** Regexp
