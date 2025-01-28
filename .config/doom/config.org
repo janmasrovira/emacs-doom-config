@@ -270,8 +270,7 @@ numbers are disabled. For relative line numbers, set this to =relative=.
 #+begin_src elisp
 (setq display-line-numbers-type nil)
 (custom-set-faces!
-      '(linum :foreground "pink")
-      )
+      '(linum :foreground "pink"))
 #+end_src
 
 ** Theme
@@ -405,8 +404,7 @@ Use Spacemacs keybindings.
       :map haskell-mode-map
       "'" #'haskell-interactive-switch
       "s c" #'haskell-interactive-mode-clear
-      "l" #'haskell-process-load-file
-      )
+      "l" #'haskell-process-load-file)
 #+end_src
 
 Disable the ghc checker.
@@ -422,8 +420,7 @@ Disable the ghc checker.
 * Avy
 #+begin_src elisp
 (map! :leader
-      "j w" #'evil-avy-goto-word-or-subword-1
-      )
+      "j w" #'evil-avy-goto-word-or-subword-1)
 #+end_src
 
 * Project
