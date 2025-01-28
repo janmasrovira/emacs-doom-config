@@ -100,7 +100,12 @@ To export org mode to github flavoured markdown.
 (package! gnuplot-mode)
 #+end_src
 
-*** hledger-mode
+*** protobuf
+#+begin_src elisp :tangle packages.el
+(package! protobuf-mode)
+#+end_src
+
+hledger-mode
 #+begin_src elisp :tangle packages.el
 (package! hledger-mode)
 #+end_src
@@ -170,7 +175,7 @@ Doom exposes five (optional) variables for controlling fonts in Doom:
 See =C-h v doom-font= for documentation and more examples of what they
 accept.
 #+begin_src elisp
-(setq doom-font (font-spec :family "SauceCodePro Nerd Font" :size 14.0))
+(setq doom-font (font-spec :family "SauceCodePro Nerd Font" :size 18.0))
 (setq doom-unicode-font (font-spec :name "DejaVu Math TeX Gyre"))
 (setq doom-font-increment 1.0)
 (map! "C-M-+" #'doom/increase-font-size)
