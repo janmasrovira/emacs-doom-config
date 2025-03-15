@@ -113,7 +113,9 @@ hledger-mode
 *** lean 4
 #+begin_src elisp :tangle packages.el
 (package! lean4-mode
-  :recipe (:host github :repo "leanprover/lean4-mode"))
+  :recipe (:host github
+           :repo "leanprover-community/lean4-mode"
+           :files ("*.el" "data")))
 #+end_src
 
 *** fcitx
