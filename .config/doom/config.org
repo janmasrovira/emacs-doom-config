@@ -123,6 +123,11 @@ hledger-mode
 (package! fcitx)
 #+end_src
 
+*** eldoc-box
+#+begin_src elisp :tangle packages.el
+(package! eldoc-box)
+#+end_src
+
 *** just
 #+begin_src elisp :tangle packages.el
 (package! just-mode)
@@ -256,7 +261,6 @@ accept.
   (setq flycheck-popup-tip-error-prefix ""))
 #+end_src
 ** Tailwind
-
 #+begin_src elisp
 (use-package! lsp-tailwindcss :after lsp-mode)
 #+end_src
@@ -406,6 +410,7 @@ Use Spacemacs keybindings.
       :map haskell-mode-map
       "'" #'haskell-interactive-switch
       "s c" #'haskell-interactive-mode-clear
+      "," #'eldoc-box-help-at-point
       "l" #'haskell-process-load-file)
 #+end_src
 
@@ -413,7 +418,8 @@ Disable the ghc checker.
 #+begin_src elisp
 (setq flycheck-disabled-checkers '(haskell-ghc haskell-stack-ghc))
 #+end_src
-* Hledger
+
+* * Hledger
 #+begin_src elisp
 (add-to-list 'auto-mode-alist '("\\.journal\\'" . hledger-mode))
 (setq hledger-jfile "~/projects/balances/balances.journal")
