@@ -261,6 +261,7 @@ accept.
   :config
   (setq flycheck-popup-tip-error-prefix ""))
 #+end_src
+
 ** Tailwind
 #+begin_src elisp
 (use-package! lsp-tailwindcss :after lsp-mode)
@@ -352,7 +353,7 @@ Empty default package list.
 
 Remove =\hypersetup= from the preamble.
 #+begin_src elisp
-(setq org-latex-with-hyperref nil)
+(setq org-latex-hyperref-template "")
 #+end_src
 
 * Agda
@@ -360,6 +361,7 @@ Require Agda input method if available.
 #+begin_src elisp
 (require 'agda-input nil t)
 #+end_src
+
 * Magit
 Use Spacemacs keybindings.
 #+begin_src elisp
