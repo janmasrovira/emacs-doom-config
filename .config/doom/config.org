@@ -90,6 +90,14 @@ To export org mode to github flavoured markdown.
 (package! scss-mode)
 #+end_src
 
+*** typst-ts-mode
+#+begin_src elisp :tangle packages.el
+(package! typst-ts-mode)
+(package! websocket)
+(package! typst-preview
+  :recipe (:host github :repo "havarddj/typst-preview.el"))
+#+end_src
+
 *** fish-mode
 #+begin_src elisp :tangle packages.el
 (package! fish-mode)
