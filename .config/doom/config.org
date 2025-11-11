@@ -118,6 +118,11 @@ hledger-mode
 (package! hledger-mode)
 #+end_src
 
+*** ident-guides
+#+begin_src elisp :tangle packages.el
+(package! indent-guide)
+#+end_src
+
 *** lean 4
 #+begin_src elisp :tangle packages.el
 (package! lean4-mode
@@ -326,6 +331,15 @@ demos of how they are used. Alternatively, use =C-h o= to look up a symbol
 
 You can also try =gd= to jump to their definition and see how they are
 implemented.
+
+* Python
+#+begin_src elisp
+(after! python
+  (indent-guide-mode)
+  (setq python-indent-offset 2
+        tab-width 2
+        indent-tabs-mode nil))
+#+end_src
 
 * Org
 If you use =org= and don't want your org files in the default location below,
