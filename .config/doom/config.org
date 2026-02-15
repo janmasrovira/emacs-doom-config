@@ -145,7 +145,6 @@ hledger-mode
 #+begin_src elisp :tangle packages.el
 (package! just-mode)
 #+end_src
-
 * General
 ** Doom
 Disable tangle on save.
@@ -222,6 +221,7 @@ accept.
 (+global-word-wrap-mode +1)
 (setq help-at-pt-display-when-idle t)
 (require 'iso-transl)
+(add-hook 'before-save-hook #'delete-trailing-whitespace)
 #+end_src
 
 ** Comments
