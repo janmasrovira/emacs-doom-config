@@ -194,7 +194,7 @@ Doom exposes five (optional) variables for controlling fonts in Doom:
 See =C-h v doom-font= for documentation and more examples of what they
 accept.
 #+begin_src elisp
-(setq doom-font (font-spec :family "SauceCodePro Nerd Font" :size 18.0))
+(setq doom-font (font-spec :family "SauceCodePro Nerd Font" :size 17.0))
 (setq doom-unicode-font (font-spec :name "DejaVu Math TeX Gyre"))
 (setq doom-font-increment 1.0)
 (map! :map 'normal "C-+" #'doom/increase-font-size)
