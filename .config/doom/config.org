@@ -461,17 +461,3 @@ Disable the ghc checker.
 (map! :leader "s a p"
       #'+default/search-project)
 #+end_src
-
-* Juvix
-#+begin_src elisp
-(push "~/projects/juvix-mode/" load-path)
-(require 'juvix-mode nil t)
-(after! juvix-mode
-   (setq juvix-global-flags '()))
-#+end_src
-
-* Nockma
-#+begin_src elisp
-(push "~/projects/juvix-mode/dev/nockma" load-path)
-(require 'nockma-mode nil t)
-#+end_src
