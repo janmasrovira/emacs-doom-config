@@ -125,10 +125,24 @@ hledger-mode
 
 *** lean 4
 #+begin_src elisp :tangle packages.el
-(package! lean4-mode
-  :recipe (:host github
-           :repo "leanprover-community/lean4-mode"
+(package! neo-lean
+  :recipe (:host github :repo "janmasrovira/neo-lean-mode"
            :files ("*.el" "data")))
+;; (package! neo-lean
+;;   :recipe (:local-repo "/home/jan/projects/lean-emacs-port/neo-lean-mode"
+;;            :files ("*.el" "data")))
+#+end_src
+
+neo-lean is now the only Lean mode, so it opens =.lean= files by default.
+#+begin_src elisp
+(use-package! neo-lean-mode
+  :commands (neo-lean-mode neo-lean-goal)
+  :config
+  (add-hook 'neo-lean-mode-hook #'eglot-ensure))
+
+(map! :map neo-lean-mode-map
+      :localleader
+      "g" #'neo-lean-goal)
 #+end_src
 
 *** fcitx
