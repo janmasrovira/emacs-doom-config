@@ -125,15 +125,14 @@ hledger-mode
 
 *** lean 4
 #+begin_src elisp :tangle packages.el
-(package! neo-lean
-  :recipe (:host github :repo "janmasrovira/neo-lean-mode"
-           :files ("*.el" "data")))
 ;; (package! neo-lean
-;;   :recipe (:local-repo "/home/jan/projects/lean-emacs-port/neo-lean-mode"
+;;   :recipe (:host github :repo "janmasrovira/neo-lean-mode"
 ;;            :files ("*.el" "data")))
+(package! neo-lean
+  :recipe (:local-repo "/home/jan/projects/lean-emacs-port/neo-lean-mode"
+           :files ("*.el" "data")))
 #+end_src
 
-neo-lean is now the only Lean mode, so it opens =.lean= files by default.
 #+begin_src elisp
 (use-package! neo-lean-mode
   :commands (neo-lean-mode neo-lean-goal)
@@ -143,6 +142,14 @@ neo-lean is now the only Lean mode, so it opens =.lean= files by default.
 (map! :map neo-lean-mode-map
       :localleader
       "g" #'neo-lean-goal)
+
+(custom-set-faces!
+ `(neo-lean-goal-inserted :inherit unspecified :background unspecified
+   :foreground ,(doom-color 'green))
+ `(neo-lean-goal-removed :inherit unspecified :background unspecified
+   :foreground ,(doom-color 'red))
+ `(neo-lean-goal-changed :inherit unspecified :background unspecified
+   :foreground ,(doom-color 'violet)))
 #+end_src
 
 *** fcitx
