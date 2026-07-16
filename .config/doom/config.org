@@ -145,11 +145,11 @@ hledger-mode
 
 (custom-set-faces!
  `(neo-lean-goal-inserted :inherit unspecified :background unspecified
-   :foreground ,(doom-color 'green))
+   :foreground ,(doom-color 'cyan))
  `(neo-lean-goal-removed :inherit unspecified :background unspecified
    :foreground ,(doom-color 'red))
  `(neo-lean-goal-changed :inherit unspecified :background unspecified
-   :foreground ,(doom-color 'violet)))
+   :foreground ,(doom-color 'green)))
 #+end_src
 
 *** fcitx
@@ -165,6 +165,11 @@ hledger-mode
 *** just
 #+begin_src elisp :tangle packages.el
 (package! just-mode)
+#+end_src
+
+*** org-appear
+#+begin_src elisp :tangle packages.el
+(package! org-appear)
 #+end_src
 * General
 ** Doom
@@ -367,6 +372,13 @@ If you use =org= and don't want your org files in the default location below,
 change =org-directory=. It must be set before org loads!
 #+begin_src elisp
 (setq org-directory "~/org/")
+#+end_src
+
+Hide emphasis markers (=~code~=, =*bold*=, =/italic/=), revealing them near the cursor.
+#+begin_src elisp
+(setq org-hide-emphasis-markers t)
+(use-package! org-appear
+  :hook (org-mode . org-appear-mode))
 #+end_src
 
 Edit code blocks with usual keybindings.
