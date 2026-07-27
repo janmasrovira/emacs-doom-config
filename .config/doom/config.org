@@ -421,6 +421,7 @@ Require Agda input method if available.
 Use Spacemacs keybindings.
 #+begin_src elisp
 (map! :leader "g s" #'magit-status)
+(map! :leader "g w" #'magit-worktree)
 (map! :localleader
       :map with-editor-mode-map
       "k" #'with-editor-cancel
