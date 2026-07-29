@@ -171,6 +171,13 @@ hledger-mode
 #+begin_src elisp :tangle packages.el
 (package! org-appear)
 #+end_src
+
+*** ghostel
+#+begin_src elisp :tangle packages.el
+(package! ghostel)
+(package! evil-ghostel)
+#+end_src
+
 * General
 ** Doom
 Disable tangle on save.
