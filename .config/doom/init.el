@@ -14,6 +14,10 @@
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
 
+;; typst-ts-mode's autoloads call `define-compilation-mode' without loading
+;; compile.el first, and doom reads those autoloads after this file.
+(require 'compile)
+
 (doom! :input
        ;;chinese
        ;;japanese
