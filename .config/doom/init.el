@@ -146,7 +146,7 @@
        ;;lean              ; (Lean 3) for folks with too much to prove
        ;;ledger            ; be audit you can be
        ;;lua               ; one-based indices? one-based indices
-       markdown          ; writing docs for people to ignore
+       (markdown +tree-sitter) ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        (org)      ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother

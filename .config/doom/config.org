@@ -514,3 +514,19 @@ Disable the ghc checker.
 (map! :leader "s a p"
       #'+default/search-project)
 #+end_src
+
+* Markdown
+#+begin_src elisp
+(after! markdown-ts-mode
+  (require 'markdown-ts-mode-x))
+#+end_src
+
+#+begin_src elisp
+(set-tree-sitter! '(markdown-mode gfm-mode) 'markdown-ts-mode
+  '(markdown markdown-inline))
+#+end_src
+
+Shadow native commands.
+#+begin_src elisp
+(remove-hook 'markdown-ts-mode-hook #'evil-markdown-mode)
+#+end_src
