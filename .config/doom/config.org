@@ -152,6 +152,18 @@ hledger-mode
    :foreground ,(doom-color 'green)))
 #+end_src
 
+*** lean explorer
+#+begin_src elisp
+(add-load-path! "~/projects/lean-explorer")
+
+(use-package! lean-explorer
+  :commands (lean-explorer lean-explorer-mode))
+
+(map! :map neo-lean-mode-map
+      :localleader
+      "c" #'lean-explorer)
+#+end_src
+
 *** fcitx
 #+begin_src elisp :tangle packages.el
 (package! fcitx)
