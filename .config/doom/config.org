@@ -68,6 +68,12 @@ release. The =unpin!= macro allows you to unpin single packages.
 #+end_src
 
 ** My packages
+*** C3
+#+begin_src elisp :tangle packages.el
+(package! c3-ts-mode
+  :recipe (:host github :repo "c3lang/c3-ts-mode"))
+#+end_src
+
 *** evil-snipe
 Disable evil-snipe.
 #+begin_src elisp :tangle packages.el
@@ -529,4 +535,18 @@ Disable the ghc checker.
 Shadow native commands.
 #+begin_src elisp
 (remove-hook 'markdown-ts-mode-hook #'evil-markdown-mode)
+#+end_src
+
+* C3
+#+begin_src elisp
+(use-package! c3-ts-mode
+  :mode (("\\.c3\\'" . c3-ts-mode)
+         ("\\.c3i\\'" . c3-ts-mode)
+         ("\\.c3t\\'" . c3-ts-mode))
+  :init
+  (require 'treesit)
+  (add-to-list 'treesit-language-source-alist
+               '(c3 "https://github.com/c3lang/tree-sitter-c3"))
+  :config
+  (setq treesit-font-lock-level 4))
 #+end_src
